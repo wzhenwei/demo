@@ -1,0 +1,22 @@
+server:
+   port: 8762
+spring:
+  application:
+    name: eureka-register
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          zk-nodes: localhost:2181
+eureka:
+#  server:
+#     eviction-interval-timer-in-ms: 1000 # 驱逐间隔
+#     renewal-percent-threshold: 0.1 #自我保护阀值
+  instance:
+    hostname: localhost #实例域名
+  client:
+    registerWithEureka: false #是否把自身注册到eureka
+    fetchRegistry: false #获取注册表
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #默认地址

@@ -1,0 +1,16 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8762/eureka/
+server:
+   port: 8001
+spring:
+    application:
+            name: test-service
+    cloud:
+      config:
+        profile: ${spring.profiles.active:dev}
+        discovery:
+          enabled: true
+          service-id: spring-cloud-config-server
+
